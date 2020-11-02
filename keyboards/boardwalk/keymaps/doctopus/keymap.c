@@ -23,6 +23,8 @@ enum layer {
 
 //Milan Adddded
 
+//#define FUNCTION MO(_FN)
+
 //Tap Dance Declarations
 enum {
   EscG = 0,
@@ -63,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC, \
   KC_LGUI, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,  KC_PGUP, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_PGDN, \
-  KC_LCTL, KC_LALT, KC_LGUI,                          KC_SPC,               LT(1, KC_BSPC), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT  \
+  KC_LCTL, KC_LALT, KC_LGUI,                          KC_SPC,             KC_BSPC, LT(_FN,KC_RCTL), KC_LEFT, KC_DOWN, KC_RGHT  \
  ),
 
 
@@ -83,12 +85,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 
- [_FN] = LAYOUT_ortho_5x14(
+ [_FN] = LAYOUT_625u_arrow(
   RESET  , RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, RGB_SPI, RGB_SPD, _______, _______, _______, \
   _______, BL_TOGG, BL_STEP, BL_ON  , BL_OFF , BL_INC , BL_DEC , BL_BRTG, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  _______, _______, _______,                   _______,                            _______, _______, _______, _______, _______
  )
 
 };
