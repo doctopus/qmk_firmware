@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Numpad|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Ctrl | Alt  |Comand|Low-Bk| Space|Space |Hi-Del| Left | Down |  Up  |Right |
+ * |CtlTsk| Ctrl | Alt  |Comand|Low-Bk| Space|Space |Hi-Del| Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 /* Base layer (Qwerty) Work in Progress...
