@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,		KC_Q,		KC_W,		KC_E,		KC_R,		KC_T,	KC_Y,	KC_U,	KC_I,		KC_O,		KC_P,		TD(BRC),   \
 	KC_LCTL,	KC_A,		KC_S,		KC_D,		KC_F,		KC_G,	KC_H,	KC_J,	KC_K,		KC_L,		TD(ColQot),	KC_ENT, \
 	KC_LSFT,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,	KC_N,	KC_M,	KC_COMM,	KC_DOT,		KC_SLSH,	TT(_NUMPAD), \
-	TD(CtlTsk), KC_LALT,CMD_T(KC_DEL),	KC_LGUI,	KC_BSPC,	KC_SPC,						KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
+	TD(CtlTsk), KC_LALT,    CMD_T(KC_DEL),	KC_LGUI,	KC_BSPC,	KC_SPC,				KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
 ),
 
 /* Colemak
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______,	KC_ACL0,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
 	_______,	KC_ACL1,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
 	_______,	KC_ACL2,	KC_VOLU,	KC_MPRV,	KC_MPLY,	KC_MNXT,	KC_EQL,		KC_0,		KC_DOT,		KC_ASTR,    KC_SLSH,    _______, \
-	OSL(_SYMB),	_______,	KC_VOLD,	KC_MUTE,	KC_BSPC,	KC_SPC,		KC_SPC,		KC_DEL,		_______,	_______ \
+	OSL(_SYMB),	_______,	KC_VOLD,	KC_MUTE,	KC_BSPC,	KC_SPC,								KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
 ),
 
 /* Symbol
