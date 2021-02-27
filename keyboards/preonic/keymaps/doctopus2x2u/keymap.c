@@ -13,12 +13,16 @@ enum preonic_keycodes {
   FUNCT
 };
 
+//Maro Declarations
+enum {
+	MILAN = SAFE_RANGE
+};
+
 //Tap Dance Declarations
 enum {
   TEsc = 0,
   ColQot,
   BRC,
-  BkMin,
   CtlTsk
 };
 
@@ -32,9 +36,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
   //Tap once for [, twice for ]
   [BRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
-
-  //Tap once for Backspace, twice for Minus
-  [BkMin] = ACTION_TAP_DANCE_DOUBLE(KC_BSPC, KC_MINS),
 
   //Tap once for Ctrl, twice for Ctl+Alt+Del
   [CtlTsk] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, LALT(LCTL(KC_DEL)))
@@ -54,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Numpad|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |  Alt |CmdDel| Bksp | Bksp | Space|Space |  Del | Left | Down |  Up  |Right |
+ * | Ctrl |  Alt |  Cmd |CmdDel|     Bksp    |     Space   | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_2x2u( \
@@ -62,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,		KC_Q,		KC_W,		KC_E,		KC_R,		KC_T,	KC_Y,	KC_U,	KC_I,		KC_O,		KC_P,		TD(BRC),   \
 	KC_LCTL,	KC_A,		KC_S,		KC_D,		KC_F,		KC_G,	KC_H,	KC_J,	KC_K,		KC_L,		TD(ColQot),	KC_ENT, \
 	KC_LSFT,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,	KC_N,	KC_M,	KC_COMM,	KC_DOT,		KC_SLSH,	TT(_NUMPAD), \
-	TD(CtlTsk), KC_LALT,    CMD_T(KC_DEL),	KC_LGUI,	KC_BSPC,	KC_SPC,				KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
+	TD(CtlTsk), KC_LALT,KC_LGUI,CMD_T(KC_DEL),		KC_BSPC,	KC_SPC,				KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
 ),
 
 /* Colemak
@@ -75,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Numpad|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |Symbol| Alt  | Bksp | Bksp | Space|Space |  Del | Left | Down |  Up  |Right |
+ * |Symbol| Ctrl | Alt  | Bksp | Bksp | Space|Space |  Del | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_2x2u( \
@@ -83,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,		KC_Q,		KC_W,		KC_F,		KC_P,		KC_G,	KC_J,	KC_L,	KC_U,		KC_Y,		TD(ColQot),	TD(BRC), \
 	KC_ESC,		KC_A,		KC_R,		KC_S,		KC_T,		KC_D,	KC_H,	KC_N,	KC_E,		KC_I,		KC_O,		KC_QUOT,   \
 	KC_LSFT,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,	KC_K,	KC_M,	KC_COMM,	KC_DOT,		KC_SLSH,	TG(_NUMPAD), \
-	KC_LCTL, OSL(_SYMB),	KC_LALT,	KC_BSPC,	KC_SPC,	KC_DEL,	KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT \
+	OSL(_SYMB), KC_LCTL,	KC_LALT,	KC_BSPC,	KC_SPC,	KC_DEL,	KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT \
 ),
 
 
@@ -110,23 +111,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad & Mouse
  * ,-----------------------------------------------------------------------------------.
- * |Reset |      |      |M-clic|      |      | NumLk|   7  |   8  |   9  |  0   |Bksp- |
+ * | MILAN|      |M-clic|      |      |      | NumLk|   7  |   8  |   9  |  0   | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | ACL0 |L-clck|  Up  |R-clck|Scrl U|   *  |   4  |   5  |   6  |  +   |  :   |
+ * |      |L-clck|  Up  |R-clck|Scrl U|      |   *  |   4  |   5  |   6  |  +   |  :   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | ACL1 | Left | Down |Right |Scrl D|   /  |   1  |   2  |   3  |  -   | Enter|
+ * |      |Left  | Down |Right |Scrl D|      |   /  |   1  |   2  |   3  |  -   | Enter|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | ACL2 | VOLU | PREV |PAUSE | NEXT |   =  |   0  |   .  |   *  |  /   | Back |
+ * |      |      |      |      |      |      |   =  |   0  |   .  |   *  |  /   | Back |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Symbol|      | VOLD | MUTE | Bksp | Space|Space | Del  | Left | Down |  Up  |Right |
+ * |Symbol|      |      | Bksp | Space| Space|Space | Del  | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_preonic_2x2u( \
-	RESET,		_______,	_______,	KC_BTN3,	_______,	_______,	KC_NLCK,	_______,	_______,	_______,	_______,	TD(BkMin), \
-	_______,	KC_ACL0,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
-	_______,	KC_ACL1,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
-	_______,	KC_ACL2,	KC_VOLU,	KC_MPRV,	KC_MPLY,	KC_MNXT,	KC_EQL,		KC_0,		KC_DOT,		KC_ASTR,    KC_SLSH,    _______, \
-	OSL(_SYMB),	_______,	KC_VOLD,	KC_MUTE,	KC_BSPC,	KC_SPC,								KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
+	MILAN,		_______,	KC_BTN3,	_______,	_______,	_______,	KC_NLCK,	_______,	_______,	_______,	_______,	_______, \
+	_______,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	_______,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
+	_______,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	_______,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
+	_______,	_______,	_______,	_______,	_______,	_______,	KC_EQL,		KC_0,		KC_DOT,		KC_ASTR,    KC_SLSH,    _______, \
+	OSL(_SYMB),	_______,	_______,	_______,	_______,	    _______,								KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
 ),
 
 /* Symbol
@@ -182,6 +183,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 			return false;
 			break;
+
+		case MILAN:
+			if (record->event.pressed) {
+				// when keycode MILAN is pressed
+				SEND_STRING(SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_DELAY(300) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER));
+			} else {
+				// when keycode MILAN is released
+			}
+			break;
+
 	}
 	return true;
 };
