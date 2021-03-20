@@ -50,3 +50,6 @@
 #define TAPPING_TERM 200
 
 #endif
+
+#define DYNAMIC_MACRO_NO_NESTING
+#define DYNAMIC_MACRO_USER_CALL

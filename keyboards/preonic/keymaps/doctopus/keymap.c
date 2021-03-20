@@ -15,7 +15,8 @@ enum preonic_keycodes {
 
 //Maro Declarations
 enum {
-	MILAN = SAFE_RANGE
+	MILAN = SAFE_RANGE,
+	EPIC
 };
 
 //Tap Dance Declarations
@@ -113,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | MILAN|      |M-clic|      |      |      | NumLk|   7  |   8  |   9  |  0   | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |L-clck|  Up  |R-clck|Scrl U|      |   *  |   4  |   5  |   6  |  +   |  :   |
+ * | EPIC |L-clck|  Up  |R-clck|Scrl U|      |   *  |   4  |   5  |   6  |  +   |  :   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |Left  | Down |Right |Scrl D|      |   /  |   1  |   2  |   3  |  -   | Enter|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -124,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMPAD] = LAYOUT_preonic_grid( \
 	MILAN,		_______,	KC_BTN3,	_______,	_______,	_______,	KC_NLCK,	_______,	_______,	_______,	_______,	_______, \
-	_______,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	_______,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
+	EPIC,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	_______,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
 	_______,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	_______,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
 	_______,	_______,	_______,	_______,	_______,	_______,	KC_EQL,		KC_0,		KC_DOT,		KC_ASTR,    KC_SLSH,    _______, \
 	OSL(_SYMB),	_______,	_______,	_______,	_______,	    _______,	_______,	_______,	KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
@@ -187,9 +188,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		case MILAN:
 			if (record->event.pressed) {
 				// when keycode MILAN is pressed
-				SEND_STRING(SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) SS_TAP(X_SPACE) SS_TAP(X_BSPACE) SS_DELAY(300) STRINGIZE(tapas000) SS_TAP(X_ENTER));
+				SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(300) SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) SS_TAP(X_SPACE) SS_TAP(X_BSPACE) SS_DELAY(300) STRINGIZE(tapas000) SS_TAP(X_ENTER));
 			} else {
 				// when keycode MILAN is released
+			}
+			break;
+
+		case EPIC:
+			if (record->event.pressed) {
+				// when keycode EPIC is pressed
+				SEND_STRING(SS_LWIN("1") SS_DELAY(15000) STRINGIZE(beherat) SS_TAP(X_TAB) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER) SS_DELAY(300) SS_TAP(X_ENTER));
+			} else {
+				// when keycode EPIC is released
 			}
 			break;
 

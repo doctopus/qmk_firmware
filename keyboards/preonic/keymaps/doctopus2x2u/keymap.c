@@ -15,7 +15,8 @@ enum preonic_keycodes {
 
 //Maro Declarations
 enum {
-	MILAN = SAFE_RANGE
+	MILAN = SAFE_RANGE,
+	EPIC
 };
 
 //Tap Dance Declarations
@@ -61,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_preonic_2x2u( \
 	TD(TEsc),	KC_1,		KC_2,		KC_3,		KC_4,		KC_5,	KC_6,	KC_7,	KC_8,		KC_9,		KC_0,		KC_BSPC,  \
 	KC_TAB,		KC_Q,		KC_W,		KC_E,		KC_R,		KC_T,	KC_Y,	KC_U,	KC_I,		KC_O,		KC_P,		TD(BRC),   \
-	KC_LCTL,	KC_A,		KC_S,		KC_D,		KC_F,		KC_G,	KC_H,	KC_J,	KC_K,		KC_L,		TD(ColQot),	KC_ENT, \
+	KC_LCTRL,	KC_A,		KC_S,		KC_D,		KC_F,		KC_G,	KC_H,	KC_J,	KC_K,		KC_L,		TD(ColQot),	KC_ENT, \
 	KC_LSFT,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,	KC_N,	KC_M,	KC_COMM,	KC_DOT,		KC_SLSH,	TT(_NUMPAD), \
-	TD(CtlTsk), KC_LALT,KC_LGUI,CMD_T(KC_DEL),		KC_BSPC,	KC_SPC,				KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
+	TD(CtlTsk), KC_LALT,KC_LGUI,CMD_T(KC_DEL),		LT(MO(_FUNCT), KC_BSPC),	LT(MO(_NUMPAD), KC_SPC),				KC_LEFT,	KC_DOWN,	KC_UP,		KC_RGHT  \
 ),
 
 /* Colemak
@@ -113,9 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | MILAN|      |M-clic|      |      |      | NumLk|   7  |   8  |   9  |  0   | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |L-clck|  Up  |R-clck|Scrl U|      |   *  |   4  |   5  |   6  |  +   |  :   |
+ * | EPIC |L-clck|  Up  |R-clck|Scrl U|      |   *  |   4  |   5  |   6  |  +   |  :   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Left  | Down |Right |Scrl D|      |   /  |   1  |   2  |   3  |  -   | Enter|
+ * |RECORD|Left  | Down |Right |Scrl D|      |   /  |   1  |   2  |   3  |  -   | Enter|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |   =  |   0  |   .  |   *  |  /   | Back |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -124,10 +125,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMPAD] = LAYOUT_preonic_2x2u( \
 	MILAN,		_______,	KC_BTN3,	_______,	_______,	_______,	KC_NLCK,	_______,	_______,	_______,	_______,	_______, \
-	_______,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	_______,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
-	_______,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	_______,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
+	EPIC,	KC_BTN1,	KC_MS_U,	KC_BTN2,	KC_WH_U,	_______,	KC_ASTR,	KC_4,		KC_5,		KC_6,		KC_PLUS,    KC_COLN, \
+	DM_REC1,	KC_MS_L,	KC_MS_D,	KC_MS_R,	KC_WH_D,	_______,	KC_SLSH,	KC_1,		KC_2,		KC_3,		KC_MINS,    KC_ENT, \
 	_______,	_______,	_______,	_______,	_______,	_______,	KC_EQL,		KC_0,		KC_DOT,		KC_ASTR,    KC_SLSH,    _______, \
-	OSL(_SYMB),	_______,	_______,	_______,	_______,	    _______,								KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
+	MO(_SYMB),	_______,	_______,	_______,	_______,	    _______,								KC_HOME,	KC_PGDOWN,	KC_PGUP,	KC_END \
 ),
 
 /* Symbol
@@ -153,11 +154,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Music
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |QWERTY|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |QWERTY|      |      |      |      |      |      |      |      |      |      |      |
+ * |RECORD|      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |COLMAK|      |      |      |      |      |      |      |      |      |      |      |
+ * | PLAY |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -165,16 +166,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_MUSIC] = LAYOUT_preonic_2x2u( \
-	KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
-	TO(_QWERTY),	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
-	TO(_COLEMAK),	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
+	KC_M,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	TO(_QWERTY), \
+	DM_REC1,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
+	DM_PLY1,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
 	KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO, \
 	KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	MU_MOD,	MU_TOG \
 )
 
 };
 
+uint32_t layer_state_set_user(uint32_t state) {
+  return update_tri_layer_state(state, _FUNCT, _NUMPAD, _MUSIC);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//This code is to stop recording dynamic macro upon changing layer https://github.com/qmk/qmk_firmware/blob/master/docs/feature_dynamic_macros.md	
+	uint16_t macro_kc = (keycode == MO(_NUMPAD) ? DYN_REC_STOP : keycode);
+
+	if (!process_dynamic_macro(macro_kc, record)) {
+		return false;
+	}
+// If Dynamic macro not needed, above can be removed
+//Other changes done to activate dynamic macro is added dynamic macro enable in rules.mk and added two dynamic macro defines in the config.h
+
+
 	switch (keycode) {
 		case FUNCT:
 			if (record->event.pressed) {
@@ -187,11 +202,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		case MILAN:
 			if (record->event.pressed) {
 				// when keycode MILAN is pressed
-				SEND_STRING(SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_DELAY(300) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER));
+				SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(300) SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_DELAY(300) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER));
 			} else {
 				// when keycode MILAN is released
 			}
 			break;
+
+		case EPIC:
+			if (record->event.pressed) {
+				// when keycode EPIC is pressed
+				SEND_STRING(SS_LWIN("1") SS_DELAY(15000) STRINGIZE(beherat) SS_TAP(X_TAB) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER) SS_DELAY(300) SS_TAP(X_ENTER));
+			} else {
+				// when keycode EPIC is released
+			}
+			break;			
 
 	}
 	return true;
