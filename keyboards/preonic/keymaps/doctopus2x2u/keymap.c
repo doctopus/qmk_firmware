@@ -202,7 +202,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		case MILAN:
 			if (record->event.pressed) {
 				// when keycode MILAN is pressed
-				SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(300) SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_DELAY(300) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER));
+				SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(300) SS_DOWN(X_LCTRL) SS_DOWN(X_LALT) SS_TAP(X_DEL) SS_DELAY(300) SS_UP(X_LCTRL) SS_UP(X_LALT) SS_DELAY(300) STRINGIZE(tapas999) SS_DELAY(300) SS_TAP(X_ENTER));
 			} else {
 				// when keycode MILAN is released
 			}
@@ -211,7 +211,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		case EPIC:
 			if (record->event.pressed) {
 				// when keycode EPIC is pressed
-				SEND_STRING(SS_LWIN("1") SS_DELAY(15000) STRINGIZE(beherat) SS_TAP(X_TAB) STRINGIZE(tapas000) SS_DELAY(300) SS_TAP(X_ENTER) SS_DELAY(300) SS_TAP(X_ENTER));
+				SEND_STRING(SS_LWIN("1") SS_DELAY(15000) STRINGIZE(beherat) SS_TAP(X_TAB) STRINGIZE(tapas999) SS_DELAY(300) SS_TAP(X_ENTER) SS_DELAY(300) SS_TAP(X_ENTER));
 			} else {
 				// when keycode EPIC is released
 			}
